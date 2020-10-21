@@ -45,10 +45,14 @@ const squircleBackgroundImage = createSquircle({
   rotate: 0
 });
 
+// store in custom property to use throughout app?
 document.documentElement.style.setProperty(
   "--svg-squircle",
   squircleBackgroundImage
 );
+
+// directly apply as CSS
+document.body.style.backgroundImage = squircleBackgroundImage;
 
 ...
 ```

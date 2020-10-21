@@ -8,6 +8,9 @@
 
 You can currently find squircley.js on NPM https://www.npmjs.com/package/squircleyjs 📦
 
+**Note** Right now squircley.js is just an ES module. I'll add UMD support etc if folks
+need it in the future, I just didn't want to get lost in rollup land too early 🙏
+
 ## Usage
 
 **createSquircle**

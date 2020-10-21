@@ -1,4 +1,4 @@
-<img src="./og-image.png">
+<img src="https://raw.githubusercontent.com/georgedoescode/squircley.js/main/og-image.png">
 
 # squircley.js
 

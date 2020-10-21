@@ -2,14 +2,14 @@
 
 # squircley.js
 
-squircley.js is a simple javascript library for quickly and easily creating squircles based on
+squircley.js is a simple JavaScript library for quickly and easily creating squircles based on
 https://squircley.app
 
 You can currently find squircley.js on NPM at https://www.npmjs.com/package/squircleyjs
 
 ## Demo
 
-A codesandbox demo is available @ https://lfqop.csb.app/
+A codesandbox demo is available at https://codesandbox.io/s/lfqop
 
 ## Usage
 

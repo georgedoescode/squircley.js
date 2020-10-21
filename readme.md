@@ -2,14 +2,11 @@
 
 # squircley.js
 
-squircley.js is a simple JavaScript library for quickly and easily creating squircles based on
-https://squircley.app
+`squircley.js` is the core squirclular magic ✨ from https://squircley.app wrapped up into a simple, 0 dependency JavaScript library.
 
-You can currently find squircley.js on NPM at https://www.npmjs.com/package/squircleyjs
+`squircley.js` can generate SVG's, add squircle backgrounds to DOM elements, and even generate base64 encoded squirculated strings ready to use with `img` tags.
 
-## Demo
-
-A codesandbox demo is available at https://codesandbox.io/s/lfqop
+You can currently find squircley.js on NPM https://www.npmjs.com/package/squircleyjs 📦
 
 ## Usage
 

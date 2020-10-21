@@ -59,6 +59,8 @@ document.documentElement.style.setProperty(
 **squircleBackground**
 
 ```javascript
+import { squircleBackground } from 'squircleyjs';
+
 // Add a quick squircle background image to a div
 squircleBackground('.squircle-background-test', {
     fill: '#f78e8e',

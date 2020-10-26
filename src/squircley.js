@@ -10,7 +10,7 @@ const DEFAULTS = {
 
 /* 
     Thanks to Olga Nikolskaya https://medium.com/@nikolskayaolia/an-easy-way-to-implement-smooth-shapes-such-as-superellipse-and-squircle-into-a-user-interface-a5ba4e1139ed 
-    Code updated based on the above article to allow for rectangular shapes + dynamic curvatr
+    Code updated based on the above article to allow for rectangular shapes + dynamic curvature
 */
 function createSquirclePath(w, h, vW, vH, curvature, rotate) {
     const pathNode = document.createElementNS(

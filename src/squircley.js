@@ -1,24 +1,33 @@
 const DEFAULTS = {
     format: 'SVGNode',
+    viewBox: [0, 0, 200, 200],
+    width: 200,
+    height: 200,
     curvature: 0.5,
     fill: '#4C3EF7',
     rotate: 0,
 };
 
-function createSquirclePath(w, h, curvature, rotate) {
+/* 
+    Thanks to Olga Nikolskaya https://medium.com/@nikolskayaolia/an-easy-way-to-implement-smooth-shapes-such-as-superellipse-and-squircle-into-a-user-interface-a5ba4e1139ed 
+    Code updated based on the above article to allow for rectangular shapes + dynamic curvatr
+*/
+function createSquirclePath(w, h, vW, vH, curvature, rotate) {
     const pathNode = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'path'
     );
-    const curveWidth = (w / 2) * (1 - curvature);
-    const curveHeight = (h / 2) * (1 - curvature);
+    const width = w;
+    const height = h;
+    const halfWidth = width / 2;
+    const halfHeight = height / 2;
+    const arc = Math.min(halfWidth, halfHeight) * (1 - curvature);
 
     const d = `
-        M 0, ${h / 2}
-        C 0, ${curveWidth} ${curveHeight}, 0 ${w / 2}, 0
-        S ${w}, ${curveHeight} ${w}, ${h / 2}
-            ${w - curveWidth}, ${h - 0} ${w / 2}, ${h}
-            0, ${w - curveHeight} 0, ${h / 2}
+        M 0 ${halfHeight}
+        C 0 ${arc}, ${arc} 0, ${halfWidth} 0
+        S ${width} ${arc}, ${width} ${halfHeight}, ${width - arc} ${height}
+          ${halfWidth} ${height}, 0 ${height - arc}, 0 ${halfHeight}
     `;
 
     const transform = `
@@ -26,6 +35,10 @@ function createSquirclePath(w, h, curvature, rotate) {
             ${rotate},
             ${w / 2},
             ${h / 2}
+        )
+        translate(
+            ${(vW - w) / 2},
+            ${(vH - h) / 2}
         )
     `;
 
@@ -53,16 +66,20 @@ function createSquircleSVG(w, h, pathNode) {
 function createSquircle(opts) {
     opts = Object.assign(DEFAULTS, opts);
 
-    const viewboxWidth = 100;
-    const viewboxHeight = 100;
-
     const path = createSquirclePath(
-        viewboxWidth,
-        viewboxHeight,
+        opts.width,
+        opts.height,
+        opts.viewBox[2],
+        opts.viewBox[3],
         opts.curvature,
         opts.rotate
     );
-    const squircleSVG = createSquircleSVG(viewboxWidth, viewboxHeight, path);
+
+    const squircleSVG = createSquircleSVG(
+        opts.viewBox[2],
+        opts.viewBox[3],
+        path
+    );
 
     squircleSVG.setAttribute('fill', opts.fill);
 

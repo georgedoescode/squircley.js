@@ -67,10 +67,10 @@ function createSquircle(opts) {
     squircleSVG.setAttribute('fill', opts.fill);
 
     if (opts.format === 'base64') {
-        // return base64 enoded squircle for images etc
+        // return base64 encoded squircle for images etc
         return `data:image/svg+xml;base64,${btoa(squircleSVG.outerHTML)}`;
     } else if (opts.format === 'backgroundImage') {
-        // return nicely formatted SVG that can be used in CSS as variable or bacgkround etc
+        // return nicely formatted SVG that can be used in CSS as variable or background etc
         const html = squircleSVG.outerHTML.replace(/"/g, `'`);
         return `url("data:image/svg+xml;utf8,${html.replace(
             /[\r\n%#()<>?[\\\]^`{|}]/g,

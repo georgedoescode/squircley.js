@@ -13,7 +13,21 @@ need it in the future, I just didn't want to get lost in rollup land too early ð
 
 ## Usage
 
-**createSquircle**
+### createSquircle
+
+**Options**
+
+| Name        | Type     | Default            | Description                                                                |
+| ----------- | -------- | ------------------ | -------------------------------------------------------------------------- |
+| `format`    | `String` | `SVGNode`          | The format of the squircle. Accepts `SVGNode`, `backgroundImage`, `base64` |
+| `viewBox`   | `Array`  | `[0, 0, 200, 200]` | SVG viewbox (x, y, w, h)                                                   |
+| `width`     | `Number` | `200`              | Width of the squircle                                                      |
+| `height`    | `Number` | `200`              | Height of the squircle                                                     |
+| `curvature` | `Number` | `0.5`              | Value `0 - 1` that determines how round the squircle is                    |
+| `fill`      | `String` | `0.5`              | Fill color of the squircle                                                 |
+| `rotate`    | `Number` | `0`                | Rotation of the squircle                                                   |
+
+**Examples**
 
 ```javascript
 import { createSquircle } from 'squircleyjs';
@@ -22,6 +36,9 @@ import { createSquircle } from 'squircleyjs';
 const target = document.querySelector('.target');
 const squircleSVG = createSquircle({
     format: 'SVGNode',
+    viewBox: [0, 0, 200, 200],
+    width: 150,
+    height: 150,
     curvature: 0.1,
     fill: '#fadb5f',
     rotate: 0,
@@ -33,6 +50,9 @@ target.appendChild(squircleSVG);
 const target = document.querySelector('img');
 const squircleBase64 = createSquircle({
     format: 'base64',
+    viewBox: [0, 0, 200, 200],
+    width: 150,
+    height: 150,
     curvature: 0.1,
     fill: '#e46a3c',
     rotate: 0,
@@ -43,6 +63,9 @@ target.src = squircleBase64;
 // Create a urlEncoded background-image squircle ready to use in CSS / attach to a custom property
 const squircleBackgroundImage = createSquircle({
   format: "backgroundImage",
+  viewBox: [0, 0, 200, 200],
+  width: 150,
+  height: 150,
   curvature: 0.1,
   fill: "#908cfa",
   rotate: 0
@@ -60,7 +83,13 @@ document.body.style.backgroundImage = squircleBackgroundImage;
 ...
 ```
 
-**squircleBackground**
+### squircleBackground
+
+**Options**
+
+`squircleBackground` is simple a wrapper around `createSquircle`. The options are identical.
+
+**Examples**
 
 ```javascript
 import { squircleBackground } from 'squircleyjs';
